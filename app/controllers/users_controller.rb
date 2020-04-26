@@ -20,10 +20,7 @@ class UsersController < ApplicationController
       name: params[:name],
       email: params[:email],
       password: params[:password],
-      if params[:image]
-        image_name: params[:image]
-      else
-        image_name:"tweeticon.png"
+      image_name:"tweeticon.png"
     )
     if @user.save
       session[:user_id]=@user.id
