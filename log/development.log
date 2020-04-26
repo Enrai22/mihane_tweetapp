@@ -3187,3 +3187,751 @@ Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1
 NoMethodError (undefined method `read' for "kabegami.jpg":String):
   
 app/controllers/users_controller.rb:23:in `create'
+Started POST "/users/create" for ::1 at 2020-04-24 16:32:56 +0900
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"RUBT6PDi2UmdVAkKcb/0oK+2Qfm4yb0a1QLmZdXCwFjKpbUvViRi16zRY5Pb6Jodv3uJLpqUaB3j/v3uMPOUWA==", "name"=>"小狐丸", "email"=>"firefoxxx@domomo.ne.jp", "image"=>"kabegami.jpg"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "firefoxxx@domomo.ne.jp"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "image_name") VALUES (?, ?, ?, ?, ?)[0m  [["name", "小狐丸"], ["email", "firefoxxx@domomo.ne.jp"], ["created_at", "2020-04-24 07:32:57.340771"], ["updated_at", "2020-04-24 07:32:57.340771"], ["image_name", "tweeticon.png"]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[35m (16.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 74ms (ActiveRecord: 18.8ms | Allocations: 7623)
+
+
+Started GET "/users/6" for ::1 at 2020-04-24 16:32:57 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 26.8ms | Allocations: 245)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 382ms (Views: 372.4ms | ActiveRecord: 0.5ms | Allocations: 6737)
+
+
+  [1m[35m (13.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPasswordToUsers (20200424082910)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mprimary::SchemaMigration Create (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200424082910"]]
+  [1m[35m (21.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (12.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users/index" for ::1 at 2020-04-24 18:06:22 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 40.3ms | Allocations: 4378)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 438ms (Views: 427.7ms | ActiveRecord: 0.5ms | Allocations: 10828)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Started GET "/users/5" for ::1 at 2020-04-24 18:07:36 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 19.7ms | Allocations: 240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 72.2ms | ActiveRecord: 0.5ms | Allocations: 5740)
+
+
+Started GET "/users/index" for ::1 at 2020-04-24 18:07:46 +0900
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 704)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 62.3ms | ActiveRecord: 0.4ms | Allocations: 5416)
+
+
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users/index" for ::1 at 2020-04-24 20:32:50 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 25.3ms | Allocations: 4461)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 103ms (Views: 89.2ms | ActiveRecord: 0.7ms | Allocations: 10902)
+
+
+Started GET "/signup" for ::1 at 2020-04-24 20:32:56 +0900
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 26.9ms | Allocations: 2592)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.0ms | Allocations: 3192)
+
+
+  
+ActionView::Template::Error (undefined method `password' for #<User:0x000000000c892e00>):
+    14:         <p>メールアドレス</p>
+    15:         <input name="email" value="<%= @user.email %>">
+    16:         <p>パスワード</p>
+    17:         <input type="password" name="password" value="<%= @user.password %>">
+    18: 
+    19:         <input type="submit" value="新規登録">
+    20:         <% end %>
+  
+app/views/users/new.html.erb:17
+app/views/users/new.html.erb:11
+Started GET "/signup" for ::1 at 2020-04-24 20:34:17 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2330)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.9ms | Allocations: 7415)
+
+
+  
+ActionView::Template::Error (undefined method `password' for #<User:0x0000000006cb3788>):
+    14:         <p>メールアドレス</p>
+    15:         <input name="email" value="<%= @user.email %>">
+    16:         <p>パスワード</p>
+    17:         <input type="password" name="password" value="<%= @user.password %>">
+    18: 
+    19:         <input type="submit" value="新規登録">
+    20:         <% end %>
+  
+app/views/users/new.html.erb:17
+app/views/users/new.html.erb:11
+Started GET "/" for ::1 at 2020-04-24 20:34:32 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (Duration: 10.6ms | Allocations: 86)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 62.0ms | ActiveRecord: 0.0ms | Allocations: 5380)
+
+
+Started GET "/users/index" for ::1 at 2020-04-24 20:35:05 +0900
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 736)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 50.7ms | ActiveRecord: 0.5ms | Allocations: 5494)
+
+
+Started GET "/signup" for ::1 at 2020-04-24 20:35:07 +0900
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2296)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2756)
+
+
+  
+ActionView::Template::Error (undefined method `password' for #<User:0x00000000090c41b8>):
+    14:         <p>メールアドレス</p>
+    15:         <input name="email" value="<%= @user.email %>">
+    16:         <p>パスワード</p>
+    17:         <input type="password" name="password" value="<%= @user.password %>">
+    18: 
+    19:         <input type="submit" value="新規登録">
+    20:         <% end %>
+  
+app/views/users/new.html.erb:17
+app/views/users/new.html.erb:11
+Started GET "/signup" for ::1 at 2020-04-24 20:42:28 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 351)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 59.8ms | ActiveRecord: 0.0ms | Allocations: 10302)
+
+
+Started POST "/users/create" for ::1 at 2020-04-25 19:42:49 +0900
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"5KU4cdcGb++pjyRb8pnDUzkSfcQzjAAxslQc5gRoe1t+KxoskELIPw6eGxGbYsr6R1h/BshbrLX3Ld1njipPwg==", "name"=>"にゃんこ先生", "email"=>"shitihukuya@ne.jp", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms | Allocations: 4792)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password' for User.):
+  
+app/controllers/users_controller.rb:15:in `create'
+Started POST "/users/create" for ::1 at 2020-04-25 20:12:49 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"5KU4cdcGb++pjyRb8pnDUzkSfcQzjAAxslQc5gRoe1t+KxoskELIPw6eGxGbYsr6R1h/BshbrLX3Ld1njipPwg==", "name"=>"にゃんこ先生", "email"=>"shitihukuya@ne.jp", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 4803)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password' for User.):
+  
+app/controllers/users_controller.rb:15:in `create'
+  [1m[35m (11.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPasswordToUsers (20200424082910)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "image_name" varchar DEFAULT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "ausers" ("id","name","email","created_at","updated_at","image_name")
+                     SELECT "id","name","email","created_at","updated_at","image_name" FROM "users"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "image_name" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","name","email","created_at","updated_at","image_name")
+                     SELECT "id","name","email","created_at","updated_at","image_name" FROM "ausers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20200424082910"]]
+  [1m[35m (27.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPasswordToUsers (20200425112604)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "users" ADD "password" varchar[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200425112604"]]
+  [1m[35m (34.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2020-04-25 20:35:39 +0900
+Started GET "/" for 127.0.0.1 at 2020-04-25 20:35:39 +0900
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#top as HTML
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (Duration: 23.5ms | Allocations: 327)
+  Rendered home/top.html.erb within layouts/application (Duration: 11.4ms | Allocations: 350)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 681ms (Views: 596.2ms | ActiveRecord: 0.0ms | Allocations: 19453)
+
+
+Completed 200 OK in 674ms (Views: 580.7ms | ActiveRecord: 0.0ms | Allocations: 19297)
+
+
+Started GET "/login" for ::1 at 2020-04-25 20:38:47 +0900
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 1.7ms | Allocations: 344)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 61.4ms | ActiveRecord: 0.0ms | Allocations: 5605)
+
+
+Started GET "/login" for ::1 at 2020-04-25 20:42:54 +0900
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 1.0ms | Allocations: 324)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 53.8ms | ActiveRecord: 0.0ms | Allocations: 6242)
+
+
+Started POST "/login" for ::1 at 2020-04-25 20:43:24 +0900
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"bIXvz5N5KZO6socAO7a6955eVl1zNMJkpVmvyckgwTf2C82S1D2OQx2juEpSTbNe4BRUn4jjbuDgIG5IQ2L1rg==", "email"=>"catwanderland@prog.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "catwanderland@prog.com"], ["password", "kitty"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `login'
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 0.6ms | Allocations: 97)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 48.5ms | ActiveRecord: 1.7ms | Allocations: 7105)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "catwanderland@prog.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (6.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "password" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2020-04-25 11:43:51.213210"], ["password", "kitty"], ["id", 1]]
+  [1m[35m (25.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/login" for ::1 at 2020-04-25 20:43:57 +0900
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 0.3ms | Allocations: 93)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 60.7ms | ActiveRecord: 0.0ms | Allocations: 4763)
+
+
+Started POST "/login" for ::1 at 2020-04-25 20:44:37 +0900
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"q4Htmjd5Wn0TDxycwBy8FJfgTiNfZ4llhBy17n1b6sgxD8/HcD39rbQeI9ap57W96apM4aSwJeHBZXRv9xneUQ==", "email"=>"catwanderland@prog.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "catwanderland@prog.com"], ["password", "kitty"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `login'
+Redirected to http://localhost:3000/posts/index
+Completed 302 Found in 15ms (ActiveRecord: 1.1ms | Allocations: 5141)
+
+
+Started GET "/posts/index" for ::1 at 2020-04-25 20:44:37 +0900
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 26.0ms | Allocations: 3133)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 112ms (Views: 95.4ms | ActiveRecord: 2.0ms | Allocations: 9120)
+
+
+Started GET "/posts/new" for ::1 at 2020-04-25 20:44:45 +0900
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 18.1ms | Allocations: 337)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 75.6ms | ActiveRecord: 0.0ms | Allocations: 5218)
+
+
+Started POST "/posts/create" for ::1 at 2020-04-25 20:45:05 +0900
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"JURtXLgqAMGi2dNOq+cFUOPG0Xi3961w1S5b+Bo0Ga3FdeDQrrTu+35Frwd3Z8SYvTbyFh4DL7eL5wD2KiZtmQ==", "content"=>"今日も一日頑張るぞい！"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:16:in `create'
+  [1m[36mPost Create (3.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "今日も一日頑張るぞい！"], ["created_at", "2020-04-25 11:45:05.757291"], ["updated_at", "2020-04-25 11:45:05.757291"]]
+  ↳ app/controllers/posts_controller.rb:16:in `create'
+  [1m[35m (29.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:16:in `create'
+Redirected to http://localhost:3000/posts/index
+Completed 302 Found in 44ms (ActiveRecord: 32.8ms | Allocations: 2648)
+
+
+Started GET "/posts/index" for ::1 at 2020-04-25 20:45:05 +0900
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 736)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 66.5ms | ActiveRecord: 0.3ms | Allocations: 5508)
+
+
+Started POST "/logout" for ::1 at 2020-04-25 20:50:13 +0900
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"0U5e3i/xt5M/3euLyM7GT1bA4q/BFm/8Qow8pY9cIX5LwHyDaLUQQ5jM1MGhNc/mKIrgbTrBw3gH9f0kBR4V5w=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started GET "/login" for ::1 at 2020-04-25 20:50:13 +0900
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 0.5ms | Allocations: 96)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.0ms | Allocations: 4804)
+
+
+Started POST "/login" for ::1 at 2020-04-26 00:56:17 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"3mX57okvZNwmryZWVrG4eA07xBoPGVxq/92Wi2jbrKpE69uzzmvDDIG+GRw/SrHRc3HG2PTO8O66pFcK4pmYMw==", "email"=>"catwanderland@prog.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "catwanderland@prog.com"], ["password", "kitty"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `login'
+Redirected to http://localhost:3000/posts/index
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 891)
+
+
+Started GET "/posts/index" for ::1 at 2020-04-26 00:56:17 +0900
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 751)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 113ms (Views: 112.0ms | ActiveRecord: 0.5ms | Allocations: 5532)
+
+
+Started GET "/posts/new" for ::1 at 2020-04-26 00:56:24 +0900
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 0.3ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.0ms | Allocations: 4829)
+
+
+Started POST "/posts/create" for ::1 at 2020-04-26 00:56:36 +0900
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"zgpPrgNv9zu4US2ZZxFsk7yQ/c2lr8go+qeEnGYZqZAuO8IiFfEZAWTNUdC7ka1b4mDeowxbSu+kbt+SVgvdpA==", "content"=>"hirokisan"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:16:in `create'
+  [1m[36mPost Create (1.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "hirokisan"], ["created_at", "2020-04-25 15:56:36.596238"], ["updated_at", "2020-04-25 15:56:36.596238"]]
+  ↳ app/controllers/posts_controller.rb:16:in `create'
+  [1m[35m (19.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:16:in `create'
+Redirected to http://localhost:3000/posts/index
+Completed 302 Found in 36ms (ActiveRecord: 20.6ms | Allocations: 2441)
+
+
+Started GET "/posts/index" for ::1 at 2020-04-26 00:56:36 +0900
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 761)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 46.3ms | ActiveRecord: 0.3ms | Allocations: 5541)
+
+
+Started GET "/users/index" for ::1 at 2020-04-26 00:56:51 +0900
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 916)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 48.5ms | ActiveRecord: 0.3ms | Allocations: 5790)
+
+
+Started POST "/logout" for ::1 at 2020-04-26 00:57:04 +0900
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"jmuAjU9FW2nmxT+vBvj9hwzRYlGBlgjGq+F8dW6MAcoU5aLQCAH8uUHUAOVvA/Qucptgk3pBpELumL305M41Uw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 341)
+
+
+Started GET "/login" for ::1 at 2020-04-26 00:57:04 +0900
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 0.3ms | Allocations: 93)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 49.8ms | ActiveRecord: 0.0ms | Allocations: 4783)
+
+
+Started GET "/signup" for ::1 at 2020-04-26 00:57:07 +0900
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 368)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.0ms | Allocations: 5200)
+
+
+Started GET "/" for ::1 at 2020-04-26 00:57:30 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (Duration: 0.5ms | Allocations: 86)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 58.3ms | ActiveRecord: 0.0ms | Allocations: 5349)
+
+
+Started GET "/about" for ::1 at 2020-04-26 00:57:35 +0900
+Processing by HomeController#about as HTML
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 8.3ms | Allocations: 90)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 55.3ms | ActiveRecord: 0.0ms | Allocations: 4911)
+
+
+Started GET "/about" for ::1 at 2020-04-26 17:52:35 +0900
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (C:/Users/Mihane/tweet_app/app/controllers/home_controller.rb:2: syntax error, unexpected ')', expecting '}'
+...forbid_login_user,{only:[:top])
+...                              ^):
+  
+app/controllers/home_controller.rb:2: syntax error, unexpected ')', expecting '}'
+app/controllers/home_controller.rb:2: syntax error, unexpected ')', expecting '}'
+app/controllers/home_controller.rb:2: syntax error, unexpected ')', expecting '}'
+Started GET "/about" for ::1 at 2020-04-26 17:53:20 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#about as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 5.6ms | Allocations: 92)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 292ms (Views: 266.8ms | ActiveRecord: 1.6ms | Allocations: 8080)
+
+
+Started GET "/about" for ::1 at 2020-04-26 17:53:23 +0900
+Processing by HomeController#about as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 40.4ms | ActiveRecord: 0.4ms | Allocations: 5343)
+
+
+Started GET "/login" for ::1 at 2020-04-26 17:53:26 +0900
+Processing by UsersController#login_form as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 8.1ms | Allocations: 322)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.2ms | Allocations: 6331)
+
+
+Started POST "/login" for ::1 at 2020-04-26 17:53:34 +0900
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"7rmMHZUAbMln6B+pdbaw7zcEHtCm3HhERF+4mvIMNdeWY8T1ppGqdHB/Jsky5bHu75TYjkP51jPNiN+uua+kug==", "email"=>"catwanderland@prog.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "catwanderland@prog.com"], ["password", "kitty"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `login'
+Redirected to http://localhost:3000/posts/index
+Completed 302 Found in 14ms (ActiveRecord: 1.2ms | Allocations: 5705)
+
+
+Started GET "/posts/index" for ::1 at 2020-04-26 17:53:34 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 3130)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 53.0ms | ActiveRecord: 1.7ms | Allocations: 9821)
+
+
+Started GET "/users/1" for ::1 at 2020-04-26 17:53:39 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 15.6ms | Allocations: 250)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 53.2ms | ActiveRecord: 0.4ms | Allocations: 6168)
+
+
+Started GET "/posts/index" for ::1 at 2020-04-26 17:53:41 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 762)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 43.1ms | ActiveRecord: 0.6ms | Allocations: 6053)
+
+
+Started GET "/posts/new" for ::1 at 2020-04-26 17:53:43 +0900
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 14.9ms | Allocations: 326)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 64.8ms | ActiveRecord: 0.2ms | Allocations: 5733)
+
+
+Started GET "/posts/index" for ::1 at 2020-04-26 17:53:52 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 761)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 40.0ms | ActiveRecord: 0.4ms | Allocations: 6035)
+
+
+Started GET "/users/index" for ::1 at 2020-04-26 17:53:57 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 904)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 50.3ms | ActiveRecord: 0.7ms | Allocations: 6306)
+
+
+Started POST "/logout" for ::1 at 2020-04-26 17:53:59 +0900
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"lpAGwW5p6C3k1SqhjWLQd4U99fwtHkS96Kyq4Jcjic4MHiScKS1P/UPEFevkmdne+3f3PtbJ6Dmt1WthHWG9Vw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 869)
+
+
+Started GET "/login" for ::1 at 2020-04-26 17:53:59 +0900
+Processing by UsersController#login_form as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 0.3ms | Allocations: 93)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 43.7ms | ActiveRecord: 0.3ms | Allocations: 5455)
+
+
+Started GET "/index" for ::1 at 2020-04-26 17:54:14 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-04-26 17:54:22 +0900
+Processing by HomeController#top as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (Duration: 9.0ms | Allocations: 86)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 46.9ms | ActiveRecord: 0.3ms | Allocations: 5580)
+
+
+Started GET "/users/index" for ::1 at 2020-04-26 17:54:32 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 979)
+
+
+Started GET "/login" for ::1 at 2020-04-26 17:54:32 +0900
+Processing by UsersController#login_form as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (Duration: 0.3ms | Allocations: 97)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 45.1ms | ActiveRecord: 0.3ms | Allocations: 5469)
+
+
+Started GET "/signup" for ::1 at 2020-04-26 18:15:00 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 359)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 51.9ms | ActiveRecord: 0.3ms | Allocations: 11837)
+
+
+Started POST "/users/create" for ::1 at 2020-04-26 18:15:56 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"dgS6OomdEtJltQMIex+r9mukOigpeeI//7Yq++/mpeX54Vz9L1upTFQwaZHRSMVLe2ny/wskNzjJSjFwCtfx5Q==", "name"=>"にゃんこ先生", "email"=>"natsume@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "natsume@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "image_name", "password") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "にゃんこ先生"], ["email", "natsume@gmail.com"], ["created_at", "2020-04-26 09:15:56.771425"], ["updated_at", "2020-04-26 09:15:56.771425"], ["image_name", "tweeticon.png"], ["password", "nyanko"]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+  [1m[35m (18.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `create'
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 48ms (ActiveRecord: 20.4ms | Allocations: 4365)
+
+
+Started GET "/users/7" for ::1 at 2020-04-26 18:15:56 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 48.3ms | ActiveRecord: 0.7ms | Allocations: 6359)
+
+
+Started GET "/users/7/edit" for ::1 at 2020-04-26 18:16:05 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:35:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 16.5ms | Allocations: 363)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 58.2ms | ActiveRecord: 0.4ms | Allocations: 6294)
+
+
+Started GET "/posts/index" for ::1 at 2020-04-26 18:16:28 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `set_current_user'
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3040)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 49.2ms | ActiveRecord: 0.7ms | Allocations: 9428)
+
+

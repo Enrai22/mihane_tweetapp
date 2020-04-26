@@ -4,10 +4,12 @@
       <img src="<%= "/user_images/#{@user.image_name}" %>" >
       <h2><%= @user.name %></h2>
       <p><%= @user.email %></p>
-      <div class="user-menus">
-      <%= link_to("編集", "/users/#{@user.id}/edit") %>
-      <%= link_to("削除", "/users/#{@user.id}/destroy",{method:"post"}) %>
-      </div>
+      <% if @user.id==@current_user.id %>
+        <div class="user-menus">
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+        <%= link_to("削除", "/users/#{@user.id}/destroy",{method:"post"}) %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
